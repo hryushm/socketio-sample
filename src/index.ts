@@ -1,11 +1,12 @@
 import express from "express";
 import http from "http";
+import path from "path";
 
 const app = express();
 const httpServer = new http.Server(app);
 
 app.get("/", function(req, res) {
-  res.send("<h1>Hello world</h1>");
+  res.sendFile(path.resolve(__dirname, "../src/index.html"));
 });
 
 httpServer.listen(3000, function() {
